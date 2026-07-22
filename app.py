@@ -1,14 +1,12 @@
 import streamlit as st
 import joblib
 import string
-from nltk.corpus import stopwords
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
-# Load Model and TF-IDF
 model = joblib.load("spam_model.pkl")
 tfidf = joblib.load("tfidf.pkl")
 
-# Stopwords
-stop_words = set(stopwords.words("english"))
+stop_words = ENGLISH_STOP_WORDS
 
 # Text Cleaning Function
 def clean_text(text):
